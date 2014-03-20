@@ -54,13 +54,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Shadow Include="Test References\DemoApplication.accessor" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DemoApplication\DemoApplication.csproj">
       <Project>{D86733BE-2739-4AA9-AFAA-CBCDAF216F38}</Project>
       <Name>DemoApplication</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Test References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

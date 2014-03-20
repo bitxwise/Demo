@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -77,7 +78,7 @@
   </Target>
   -->
   <UsingTask TaskName="Behave" AssemblyFile="C:\Development\Sandbox\DemoApplication\packages\Hindsight.Behave.0.1.5\lib\Behave.dll" />
-  <Target Name="BeforeBuild">
+  <Target Name="Test">
     <Behave host="http://pyrsana.net:8080" project="DEMO" username="ivo.yueh" password="yves1984jira" directory="Features" />
   </Target>
 </Project>

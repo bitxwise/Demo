@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Behave">
+      <HintPath>..\packages\Hindsight.Behave.0.1.5\lib\Behave.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -48,22 +51,23 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelpUsersWriteSearchQueriesSteps.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchHelp.feature.cs">
+    <Compile Include="Features\Help_users_write_search_queries_1.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SearchHelp.feature</DependentUpon>
+      <DependentUpon>Help_users_write_search_queries_1.feature</DependentUpon>
     </Compile>
+    <Compile Include="HelpUsersWriteSearchQueriesSteps.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-    <None Include="SearchHelp.feature">
+    <None Include="Features\Help_users_write_search_queries_1.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SearchHelp.feature.cs</LastGenOutput>
+      <LastGenOutput>Help_users_write_search_queries_1.feature.cs</LastGenOutput>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -72,4 +76,8 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <UsingTask TaskName="Behave" AssemblyFile="C:\Development\Sandbox\DemoApplication\packages\Hindsight.Behave.0.1.5\lib\Behave.dll" />
+  <Target Name="BeforeBuild">
+    <Behave host="http://pyrsana.net:8080" project="DEMO" username="ivo.yueh" password="yves1984jira" directory="Features" />
+  </Target>
 </Project>

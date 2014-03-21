@@ -9,6 +9,7 @@ namespace DemoApplication
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("I am.");
             Console.WriteLine("Done");
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();

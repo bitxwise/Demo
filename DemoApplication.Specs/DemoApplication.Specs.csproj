@@ -90,7 +90,7 @@
   </Target>
   -->
   <UsingTask TaskName="Behave" AssemblyFile=".\lib\Behave.dll" />
-  <Target Name="BeforeBuild">
+  <Target Name="Test">
     <Behave host="http://pyrsana.net:8080" project="DEMO" username="ivo.yueh" password="yves1984jira" directory="Features" />
   </Target>
 </Project>

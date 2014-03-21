@@ -38,14 +38,29 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Behave.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, PublicKeyToken=db7cfd3acb5ad44e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>lib\Interop.SHDocVw.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>lib\Microsoft.mshtml.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="TechTalk.SpecFlow, Version=1.9.0.77, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+    <Reference Include="WatiN.Core, Version=2.1.0.1196, Culture=neutral, PublicKeyToken=db7cfd3acb5ad44e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\WatiN.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +75,8 @@
       <DependentUpon>Help_users_write_search_queries_1.feature</DependentUpon>
     </Compile>
     <Compile Include="HelpUsersWriteSearchQueriesSteps.cs" />
+    <Compile Include="HelpUsersWriteSearchQueriesSteps2.cs" />
+    <Compile Include="IEStaticInstanceHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,18 +85,32 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Help_users_write_search_queries_1.feature.cs</LastGenOutput>
     </None>
+    <None Include="lib\jssh-3.6-WINNT.xpi" />
+    <None Include="lib\jssh-WINNT-2.x.xpi" />
+    <None Include="lib\jssh-WINNT-3.5.xpi" />
+    <None Include="lib\jssh-WINNT-3.x.xpi" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="lib\Behave.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="lib\Interop.SHDocVw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\Ionic.Zip.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\Microsoft.mshtml.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\TechTalk.SpecFlow.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="lib\WatiN.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="lib\WatiN.Core.XML" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -90,7 +121,7 @@
   </Target>
   -->
   <UsingTask TaskName="Behave" AssemblyFile=".\lib\Behave.dll" />
-  <Target Name="Test">
+  <Target Name="AfterBuild">
     <Behave host="http://pyrsana.net:8080" project="DEMO" username="ivo.yueh" password="yves1984jira" directory="Features" />
   </Target>
 </Project>

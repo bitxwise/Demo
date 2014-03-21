@@ -10,6 +10,7 @@ namespace DemoApplication
         static void Main(string[] args)
         {
             Console.WriteLine("Done");
+            Console.ReadLine();
         }
     }
 }

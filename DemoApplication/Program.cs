@@ -10,7 +10,8 @@ namespace DemoApplication
         static void Main(string[] args)
         {
             Console.WriteLine("Done");
-            Console.ReadLine();
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
         }
     }
 }

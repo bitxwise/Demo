@@ -13,6 +13,7 @@ namespace DemoApplication
             Console.WriteLine("Done");
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
+            Console.Beep();
         }
     }
 }
